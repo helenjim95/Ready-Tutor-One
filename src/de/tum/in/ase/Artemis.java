@@ -44,12 +44,12 @@ public class Artemis {
 	// create a report using the passed formatter
 	public static String createFormattedReport(Stream<Exam> exams, Formatter formatter) {
 		return exams.map(exam -> formatter.formatExam(exam))
-                .reduce("", String::concat);
+                .collect(Collectors.joining(System.lineSeparator()));
 	}
 
     // create a simple report string
     public static String createSimpleReport(Stream<Exam> exams) {
-        return exams.map(exam -> "[" + exam.getGrade().getStatus() + "] Exam\"" + exam.getName() + "\":" + exam.getGrade().getValue() + "\n")
+        return exams.map(exam -> "[" + exam.getGrade().getStatus() + "] Exam \"" + exam.getName() + "\":" + exam.getGrade().getValue() + "\n")
                 .reduce("", String::concat);
     }
 
