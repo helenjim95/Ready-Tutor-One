@@ -49,7 +49,7 @@ public class Artemis {
 
     // create a simple report string
     public static String createSimpleReport(Stream<Exam> exams) {
-        return exams.map(exam -> "[" + exam.getGrade().getStatus() + "] Exam \"" + exam.getName() + "\":" + exam.getGrade().getValue())
+        return exams.map(exam -> "[" + exam.getGrade().getStatus() + "] Exam \"" + exam.getName() + "\": " + exam.getGrade().getValue())
                 .collect(Collectors.joining(System.lineSeparator()));
     }
 
