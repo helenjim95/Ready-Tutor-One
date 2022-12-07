@@ -29,7 +29,7 @@ public class Complaint {
         this.message = message;
     }
 
-    //TODO make a complain on all exams which are still preliminary
+    //make a complain on all exams which are still preliminary
     public static List<Complaint> complainAllPreliminary(Stream<Exam> exams) {
         return exams.filter(exam -> exam.getGrade().getStatus().equals(Status.PRELIMINARY))
                 .map(exam -> new Complaint(exam, "Plz giv 1.0"))

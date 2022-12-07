@@ -41,7 +41,7 @@ public class Artemis {
     }
 
 
-	// TODO: create a report using the passed formatter
+	// create a report using the passed formatter
 	public static String createFormattedReport(Stream<Exam> exams, Formatter formatter) {
 		return exams.map(exam -> formatter.formatExam(exam))
                 .reduce("", String::concat);
