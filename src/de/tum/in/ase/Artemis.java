@@ -49,6 +49,11 @@ public class Artemis {
 
     // create a simple report string
     public static String createSimpleReport(Stream<Exam> exams) {
-        return createFormattedReport(exams, (Formatter) -> ((de.tum.in.ase.Formatter) exam -> "[" + exam.getGrade().getStatus() + "] Exam \"" + exam.getName() + "\": " + exam.getGrade().getValue()).toString());
+        return createFormattedReport(exams, (Formatter) -> new Formatter() {
+            @Override
+            public String formatExam(Exam exam) {
+                return "[" + exam.getGrade().getStatus() + "] Exam \"" + exam.getName() + "\": " + exam.getGrade().getValue();
+            }
+        }.toString());
     }
 }
