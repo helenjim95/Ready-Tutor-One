@@ -16,7 +16,7 @@ public class Artemis {
                 .collect(Collectors.averagingDouble(Grade::getValue));
     }
 
-    // TODO: sort all exams by exam date in ascending order
+    // sort all exams by exam date in ascending order
     public static List<Exam> sortExamsByExamDate(Stream<Exam> exams) {
         return exams.sorted(Comparator.comparing(Exam::getExamDate))
                 .toList();
@@ -42,7 +42,7 @@ public class Artemis {
 
 
 	// create a report using the passed formatter
-	public String createFormattedReport(Stream<Exam> exams, Formatter formatter) {
+	public static String createFormattedReport(Stream<Exam> exams, Formatter formatter) {
 		return exams.map(exam -> formatter.formatExam(exam))
                 .collect(Collectors.joining(System.lineSeparator()));
 	}
