@@ -42,7 +42,7 @@ public class Artemis {
 
 
 	// create a report using the passed formatter
-	public static String createFormattedReport(Stream<Exam> exams, Formatter formatter) {
+	public String createFormattedReport(Stream<Exam> exams, Formatter formatter) {
 		return exams.map(exam -> formatter.formatExam(exam))
                 .collect(Collectors.joining(System.lineSeparator()));
 	}
