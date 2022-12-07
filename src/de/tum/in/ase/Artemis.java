@@ -11,9 +11,9 @@ import java.util.stream.Stream;
 public class Artemis {
     // calculate the average grade of all valid exams
     public static double averageGrade(Stream<Exam> exams) {
-        return exams.filter(exam -> exam.getGrade().getStatus().equals((Status.VALID)))
-                .map(exam -> exam.getGrade().getValue())
-                .reduce(0.0, Double::sum);
+        return exams.map(Exam::getGrade)
+                .filter(grade -> grade.getStatus().equals((Status.VALID)))
+                .collect(Collectors.averagingDouble(Grade::getValue));
     }
 
     // TODO: sort all exams by exam date in ascending order
@@ -49,7 +49,7 @@ public class Artemis {
 
     // create a simple report string
     public static String createSimpleReport(Stream<Exam> exams) {
-        return exams.map(exam -> "[" + exam.getGrade().getStatus() + "] Exam\"" + exam.getName() + "\":" + exam.getGrade().getValue())
+        return exams.map(exam -> "[" + exam.getGrade().getStatus() + "] Exam\"" + exam.getName() + "\":" + exam.getGrade().getValue() + "\n")
                 .reduce("", String::concat);
     }
 
