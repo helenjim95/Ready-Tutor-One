@@ -35,10 +35,10 @@ public class Artemis {
                 .collect(Collectors.groupingBy(Exam::isOnline, Collectors.summingInt(exam -> 1)));
     }
 
-    // TODO: calculate the students performance index according to the exercise
-    public static double calculatePerformanceIndex(Stream<Exam> exams) {
-        return 0;
-    }
+//    // TODO: calculate the students performance index according to the exercise
+//    public static double calculatePerformanceIndex(Stream<Exam> exams) {
+//        return 0;
+//    }
 
 
 	// create a report using the passed formatter
