@@ -43,7 +43,7 @@ public class Artemis{
 
     // TODO:
     public static String createSimpleReport(Stream<Exam> exam) {
-       Formatter formatter_ = exam1 -> String.format("[%s] Exam \"%s\": %,.2f", exam1.getGrade().getStatus().toString(), exam1.getName(), exam1.getGrade().getValue());
+       Formatter formatter_ = exam1 -> String.format("[%s] Exam \"%s\": %,.1f", exam1.getGrade().getStatus().toString(), exam1.getName(), exam1.getGrade().getValue());
         return createFormattedReport(exam, formatter_);
     }
 }
