@@ -49,7 +49,8 @@ public class Artemis {
 
     // TODO: how to put formatter and return string? create a simple report string
     public static String createSimpleReport(Stream<Exam> exams) {
-        return createFormattedReport(exams, new Formatter() {
+
+        return createFormattedReport((exams, Formatter) -> new Formatter() {
             @Override
             public String formatExam(Exam exam) {
                 return "[" + exam.getGrade().getStatus() + "] Exam \"" + exam.getName() + "\": " + exam.getGrade().getValue();
