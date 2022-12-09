@@ -43,14 +43,6 @@ public class Artemis{
 
     // TODO:
     public static String createSimpleReport(Stream<Exam> exam) {
-        return createFormattedReport(exam, exam1 -> String.format("[%s] Exam \"%s\": %,.1f", exam1.getGrade().getStatus().toString(), exam1.getName(), exam1.getGrade().getValue());
-//       return exam.map(exam_ -> {
-//           return createFormattedReport(exam, formatter -> new Formatter() {
-//               @Override
-//               public String formatExam(Exam exam) {
-//                   return String.format("[%s] Exam \"%s\": %,.1f", exam.getGrade().getStatus().toString(), exam.getName(), exam.getGrade().getValue());
-//               }
-//           }.toString());
-//       }).toString();
+        return createFormattedReport(exam, exam1 -> String.format("[%s] Exam \"%s\": %,.1f", exam1.getGrade().getStatus().toString(), exam1.getName(), exam1.getGrade().getValue()));
     }
 }
