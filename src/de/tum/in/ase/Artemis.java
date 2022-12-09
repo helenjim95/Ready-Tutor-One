@@ -47,15 +47,10 @@ public class Artemis {
                 .collect(Collectors.joining(System.lineSeparator()));
 	}
 
-    // TODO: how to put formatter and return string? create a simple report string
+    // TODO:
     public static String createSimpleReport(Stream<Exam> exams) {
-
-        return createFormattedReport(exams, () -> new Formatter() {
-                @Override
-                public String formatExam(Exam exam) {
-                    return "[" + exam.getGrade().getStatus() + "] Exam \"" + exam.getName() + "\": " + exam.getGrade().getValue();
-                }
-            });
-        }
+        return createFormattedReport(exams, formatter
+                -> exams.map(exam -> "[" + exam.getGrade().getStatus() + "] Exam \"" + exam.getName() + "\": " + exam.getGrade().getValue())
+                .collect(Collectors.joining(System.lineSeparator())));
     }
 }
