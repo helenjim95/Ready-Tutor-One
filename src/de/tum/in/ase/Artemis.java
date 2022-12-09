@@ -49,6 +49,7 @@ public class Artemis{
                     return String.format("[%s] Exam \"%s\": %,.1f", exam.getGrade().getStatus().toString(), exam.getName(), exam.getGrade().getValue());
                 }
        };
-        return createFormattedReport(exam, formatter -> formatter_.toString());
+       return exam.map(exam_ -> formatter_.formatExam(exam_)).collect(Collectors.joining(System.lineSeparator()));
+//        return createFormattedReport(exam, formatter -> formatter_.formatExam(exam));
     }
 }
