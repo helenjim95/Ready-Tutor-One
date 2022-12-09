@@ -46,7 +46,7 @@ public class Artemis{
        Formatter formatter_ = new Formatter() {
             @Override
             public String formatExam(Exam exam) {
-                return String.format("[%s] Exam \"%s\": %d" + exam.getGrade().getStatus().toString(), exam.getName(), exam.getGrade().getValue());
+                return String.format("[%s] Exam \"%s\": %s" + exam.getGrade().getStatus().toString(), exam.getName(), String.valueOf(exam.getGrade().getValue()));
             }
         };
         return createFormattedReport(exam, formatter_);
